@@ -1,0 +1,46 @@
+.fondo {
+  background-color: #252440;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  background-color: #252440;
+}
+
+.titulo {
+  color: white;
+}
+
+.etiqueta1per {
+  text-align: center;
+}
+
+.container-fluid {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.campo {
+  width: 100%;
+}
+
+h1 {
+  font-weight: 20;
+}
+.etiqueta1per {
+  text-align: center;
+}
+
+.boton {
+  color: black;
+  height: 20%;
+  width: 80%;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.logo {
+  height: 20%;
+  width: 50%;
+}
