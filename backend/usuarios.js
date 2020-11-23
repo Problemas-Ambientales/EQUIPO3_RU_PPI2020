@@ -41,5 +41,32 @@ mysqlConnection.query(nuevousuario,usuario,(err, results,fields)=>{
     res.json({message: 'Usuario registrado exitosamente'})
   }})
 })//
+router.put('/usuario/:CEDULA', (req, res) => {
+    const {NOMBRE, APPELIDO, USUARIO, CONTRASEÑA  } = req.body;
+
+    const { CEDULA } = req.params;
+
+    mysqlConnection.query(`UPDATE ESTUDIANTE SET NOMBRE = ?, APELLIDO = ?, USUARIO = ?, CONTRASEÑA = ?, WHERE CEDULA = ?`,
+
+        [NOMBRE, APELLIDO, USUARIO, CONTRASEÑA,CEDULA ], (err, rows, fields) => {
+            if (!err) {
+                res.json({ status: `Usuario registrado` });
+            } else {
+                console.log(err);
+            }
+        });
+});
+
+//eliminar usuario
+router.delete('/usuario/:CEDULA', (req,res) => {
+    const {CEDULA} = req.params;
+    mysqlConnection.query('DELETE FROM REGISTRO_USUARIO WHERE CEDULA=?', [CEDULA], (err, rows, fields) =>{
+        if(!err){
+            res.json({ status:'usuario eliminado'});
+        }else{
+            console.log(err);
+        }
+    });
+});
 
 module.exports =router;
