@@ -33,7 +33,7 @@ class Calculo extends React.Component {
                 />
                 <br />
 
-                <h1 className="titulo">Ttimepo de biodegradacion(meses)</h1>
+                <h1 className="titulo">Tiempo de biodegradación(meses)</h1>
                 <br />
                 <input
                   class="form-control"

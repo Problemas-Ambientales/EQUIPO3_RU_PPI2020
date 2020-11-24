@@ -23,7 +23,7 @@ class Menu extends React.Component {
                 <br />
                 <br />
                 <button type="button" className="btn btn-outline-dark boton">
-                  <a href="/tiempo">Tiempo de biodegradacion</a>
+                  <a href="/tiempo">Tiempo de biodegradación</a>
                 </button>
                 <br />
                 <br />

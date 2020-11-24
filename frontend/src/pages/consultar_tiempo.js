@@ -49,7 +49,7 @@ class Consultar_tiempo extends React.Component {
                         type="button"
                         className="btn btn-outline-dark boton"
                       >
-                        <a href="/tiempo">Atras</a>
+                        <a href="/tiempo">Atrás</a>
                       </button>
                     </div>
                   </div>

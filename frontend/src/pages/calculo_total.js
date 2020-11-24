@@ -10,7 +10,7 @@ class Calculo_total extends React.Component {
             <div className="container fluid">
               <div className="col-lg-12">
                 <h1 className="titulo">
-                  Total de tiempo de la degradacion de la compra
+                Total de tiempo de la biodegradación de la compra
                 </h1>
                 <br />
                 <input

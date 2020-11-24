@@ -36,7 +36,9 @@ class Tiempo extends React.Component {
                   />
                   <br />
                   <small id="emailHelp" class="form-text text-muted"></small>
-                  <label for="exampleInputEmail1">Timepo de degradacion</label>
+                  <label for="exampleInputEmail1">
+                    Tiempo de biodegradación
+                  </label>
                   <br />
                   <input
                     type="text"

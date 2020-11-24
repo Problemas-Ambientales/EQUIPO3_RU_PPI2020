@@ -49,7 +49,7 @@ class Consultar_producto extends React.Component {
                         type="button"
                         className="btn btn-outline-dark boton"
                       >
-                        <a href="/producto">Atras</a>
+                        <a href="/producto">Atrás</a>
                       </button>
                     </div>
                   </div>
