@@ -60,8 +60,8 @@ router.put('/TIEMPO_BIODEGRADACION/:IDTIEMPO_BIODEGRADACION', (req, res) => {
 
 //eliminar usuario
 router.delete('/TIEMPO_BIODEGRADACION/:IDTIEMPO_BIODEGRADACION', (req,res) => {
-    const {CODIGO} = req.params;
-    mysqlConnection.query('DELETE FROM TIEMPO_BIODEGRADACION WHERE IDTIEMPO_BIODEGRADACION =?', [CODIGO], (err, rows, fields) =>{
+    const {IDTIEMPO_BIODEGRADACION} = req.params;
+    mysqlConnection.query('DELETE FROM TIEMPO_BIODEGRADACION WHERE IDTIEMPO_BIODEGRADACION =?', [IDTIEMPO_BIODEGRADACION], (err, rows, fields) =>{
         if(!err){
             res.json({ status:'TIEMPO_BIODEGRADACION eliminado'});
         }else{
@@ -69,6 +69,3 @@ router.delete('/TIEMPO_BIODEGRADACION/:IDTIEMPO_BIODEGRADACION', (req,res) => {
         }
     });
 });
-
-
-module.exports =router;
