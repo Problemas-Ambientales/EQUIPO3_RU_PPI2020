@@ -18,7 +18,7 @@ router.get('/',(req,res)=>{
 //buscar usuario
 router.get('/TIEMPO_BIODEGRADACION/:IDTIEMPO_BIODEGRADACION',(req,res)=>{
   const {IDTIEMPO_BIODEGRADACION}= req.params;
-  mysqlConnection.query('SELECT * FROM PRODUCTO where IDTIEMPO_BIODEGRADACION = ?',[IDTIEMPO_BIODEGRADACION],(err,rows,fields)=>{
+  mysqlConnection.query('SELECT * FROM TIEMPO_BIODEGRADACION where IDTIEMPO_BIODEGRADACION = ?',[IDTIEMPO_BIODEGRADACION],(err,rows,fields)=>{
     //si no hay error
     if(!err){
       //verdadero
@@ -69,3 +69,6 @@ router.delete('/TIEMPO_BIODEGRADACION/:IDTIEMPO_BIODEGRADACION', (req,res) => {
         }
     });
 });
+
+
+module.exports =router;
