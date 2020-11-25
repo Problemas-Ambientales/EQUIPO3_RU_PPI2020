@@ -16,7 +16,7 @@ router.get('/',(req,res)=>{
   }) //Fin query
 })//Fin del get
 //buscar usuario
-router.get('/material/:PRODUCTO',(req,res)=>{
+router.get('/PRODUCTO/:CODIGO',(req,res)=>{
   const {CODIGO}= req.params;
   mysqlConnection.query('SELECT * FROM PRODUCTO where CODIGO = ?',[CODIGO],(err,rows,fields)=>{
     //si no hay error
