@@ -15,7 +15,7 @@ router.get('/',(req,res)=>{
   }
   }) //Fin query
 })//Fin del get
-//buscar usuario
+//buscar material
 router.get('/material/:MATERIAL',(req,res)=>{
   const {CODIGO}= req.params;
   mysqlConnection.query('SELECT * FROM MATERIAL where CODIGO = ?',[CODIGO],(err,rows,fields)=>{
@@ -28,7 +28,7 @@ router.get('/material/:MATERIAL',(req,res)=>{
   }
   }) //Fin query
 })//Fin del get
-//Agregar un nuuevo usuario 
+//Agregar un nuuevo material 
 router.post('/nuevo-material',(req,res)=>{
   const {COGIGO, NOMBRE, DESCRIPCION}=req.body;
   let MATERIAL =[COGIGO, NOMBRE, DESCRIPCION];
@@ -41,7 +41,7 @@ mysqlConnection.query(nuevomaterial,MATERIAL,(err,results,fields)=>{
     res.json({message: 'material registrado exitosamente'})
   }})
 })//
-//actualizar usuario 
+//actualizar material
 router.put('/MATERIAL/:CODIGO', (req, res) => {
     const {NOMBRE, DESCRIPCION} = req.body;
 
@@ -58,7 +58,7 @@ router.put('/MATERIAL/:CODIGO', (req, res) => {
         });
 });
 
-//eliminar usuario
+//eliminar material
 router.delete('/material/:CODIGO', (req,res) => {
     const {CODIGO} = req.params;
     mysqlConnection.query('DELETE FROM MATERIAL WHERE CEDULA=?', [CODIGO], (err, rows, fields) =>{
