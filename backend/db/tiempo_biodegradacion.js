@@ -5,7 +5,7 @@ const mysqlConnection= require('../db/db');
 // Colocar los middleware 
 //callbacks
 router.get('/',(req,res)=>{
-  mysqlConnection.query('SELECT * FROM TIEMPO-BIODEGRADACION',(err,rows,fields)=>{
+  mysqlConnection.query('SELECT * FROM TIEMPO_BIODEGRADACION',(err,rows,fields)=>{
     //si no hay error
     if(!err){
       //verdadero
