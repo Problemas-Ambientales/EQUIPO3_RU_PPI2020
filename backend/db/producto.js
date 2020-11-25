@@ -15,7 +15,7 @@ router.get('/',(req,res)=>{
   }
   }) //Fin query
 })//Fin del get
-//buscar usuario
+//buscar producto
 router.get('/PRODUCTO/:CODIGO',(req,res)=>{
   const {CODIGO}= req.params;
   mysqlConnection.query('SELECT * FROM PRODUCTO where CODIGO = ?',[CODIGO],(err,rows,fields)=>{
@@ -28,7 +28,7 @@ router.get('/PRODUCTO/:CODIGO',(req,res)=>{
   }
   }) //Fin query
 })//Fin del get
-//Agregar un nuuevo usuario 
+//Agregar un nuuevo producto
 router.post('/nuevo-producto',(req,res)=>{
   const {COGIGO, NOMBRE, DESCRIPCION}=req.body;
   let MATERIAL =[COGIGO, NOMBRE, DESCRIPCION];
@@ -41,7 +41,7 @@ mysqlConnection.query(nuevoproducto,PRODUCTO,(err,results,fields)=>{
     res.json({message: 'producto registrado exitosamente'})
   }})
 })//
-//actualizar usuario 
+//actualizar producto
 router.put('/PRODUCTO/:CODIGO', (req, res) => {
     const {NOMBRE, DESCRIPCION} = req.body;
 
@@ -58,7 +58,7 @@ router.put('/PRODUCTO/:CODIGO', (req, res) => {
         });
 });
 
-//eliminar usuario
+//eliminar producto
 router.delete('/producto/:CODIGO', (req,res) => {
     const {CODIGO} = req.params;
     mysqlConnection.query('DELETE FROM PRODUCTO WHERE CEDULA=?', [CODIGO], (err, rows, fields) =>{
