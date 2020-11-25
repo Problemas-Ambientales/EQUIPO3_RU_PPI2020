@@ -5,7 +5,7 @@ const mysqlConnection= require('../db/db');
 // Colocar los middleware 
 //callbacks
 router.get('/',(req,res)=>{
-  mysqlConnection.query('SELECT * FROM TIEMPO_BIODEGRADACION',(err,rows,fields)=>{
+  mysqlConnection.query('SELECT * FROM TIEMPO_TOTAL',(err,rows,fields)=>{
     //si no hay error
     if(!err){
       //verdadero
@@ -15,10 +15,10 @@ router.get('/',(req,res)=>{
   }
   }) //Fin query
 })//Fin del get
-//buscar tiempo de biodegradacion
+//buscar usuario
 router.get('/TIEMPO_BIODEGRADACION/:IDTIEMPO_BIODEGRADACION',(req,res)=>{
-  const {CODIGO}= req.params;
-  mysqlConnection.query('SELECT * FROM PRODUCTO where IDTIEMPO_BIODEGRADACION = ?',[CODIGO],(err,rows,fields)=>{
+  const {IDTIEMPO_BIODEGRADACION}= req.params;
+  mysqlConnection.query('SELECT * FROM PRODUCTO where IDTIEMPO_BIODEGRADACION = ?',[IDTIEMPO_BIODEGRADACION],(err,rows,fields)=>{
     //si no hay error
     if(!err){
       //verdadero
@@ -28,10 +28,10 @@ router.get('/TIEMPO_BIODEGRADACION/:IDTIEMPO_BIODEGRADACION',(req,res)=>{
   }
   }) //Fin query
 })//Fin del get
-//Agregar un nuuevo tiempo de biodegradacion
+//Agregar un nuuevo usuario 
 router.post('/nuevo-tiempo_biodegradacion',(req,res)=>{
-  const {COGIGO, NOMBRE, DESCRIPCION}=req.body;
-  let MATERIAL =[COGIGO, NOMBRE, DESCRIPCION];
+  const {IDTIEMPO_BIODEGRADACION,PRODUCTO, MATERIAL, TIEMPO_BIODEGRADACION}=req.body;
+  let MATERIAL =[IDTIEMPO_BIODEGRADACION,PRODUCTO, MATERIAL, TIEMPO_BIODEGRADACION];
   let nuevomaterial =`INSERT INTO TIEMPO_BIODEGRADACION(IDTIEMPO_BIODEGRADACION,PRODUCTO, MATERIAL, TIEMPO_BIODEGRADACION) VALUES(?,?,?,?)`;
 mysqlConnection.query(nuevotiempo_biodegradacion,TIEMPO_BIODEGRADACION,(err,results,fields)=>{
   if(err){
@@ -41,7 +41,7 @@ mysqlConnection.query(nuevotiempo_biodegradacion,TIEMPO_BIODEGRADACION,(err,resu
     res.json({message: 'tiempo de biodegradacion registrado exitosamente'})
   }})
 })//
-//actualizar tiempo de biodegradacion
+//actualizar usuario 
 router.put('/TIEMPO_BIODEGRADACION/:IDTIEMPO_BIODEGRADACION', (req, res) => {
     const {PRODUCTO, MATERIAL, TIEMPO_BIODEGRADACION} = req.body;
 
@@ -58,7 +58,7 @@ router.put('/TIEMPO_BIODEGRADACION/:IDTIEMPO_BIODEGRADACION', (req, res) => {
         });
 });
 
-//eliminar tiempo de biodegradacion
+//eliminar usuario
 router.delete('/TIEMPO_BIODEGRADACION/:IDTIEMPO_BIODEGRADACION', (req,res) => {
     const {CODIGO} = req.params;
     mysqlConnection.query('DELETE FROM TIEMPO_BIODEGRADACION WHERE IDTIEMPO_BIODEGRADACION =?', [CODIGO], (err, rows, fields) =>{
