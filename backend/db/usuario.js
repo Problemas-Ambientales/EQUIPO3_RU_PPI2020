@@ -18,7 +18,7 @@ router.get('/usuario',(req,res)=>{
 //buscar usuario
 router.get('/usuario/:cedula',(req,res)=>{
   const {cedula}= req.params;
-  mysqlConnection.query('SELECT * FROM `REGISTRO_USUARIO` where cedula = ?',[cedula],(err,rows,fields)=>{
+  mysqlConnection.query('SELECT * FROM `REGISTRO_USUARIO` where CEDULA = ?',[CEDULA],(err,rows,fields)=>{
     //si no hay error
     if(!err){
       //verdadero
